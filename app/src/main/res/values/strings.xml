@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Trinity Test</string>
+    <string name="internet_connection_disconnected">Internet connection disconnected.</string>
+</resources>

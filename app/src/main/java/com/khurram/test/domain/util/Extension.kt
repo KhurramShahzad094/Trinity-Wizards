@@ -1,4 +1,4 @@
-package com.khurram.test.util
+package com.khurram.test.domain.util
 
 import android.content.Context
 import android.view.View

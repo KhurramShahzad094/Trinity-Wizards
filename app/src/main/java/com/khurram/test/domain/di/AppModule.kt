@@ -1,14 +1,10 @@
-package com.khurram.test.di
+package com.khurram.test.domain.di
 
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.khurram.test.data.network.APIsInterface
-import com.khurram.test.data.repository.network.NetworkRepository
-import com.khurram.test.data.repository.network.NetworkRepositoryImpl
-import com.khurram.test.util.Constants
-import com.khurram.test.util.NetworkStatusTracker
+import com.khurram.test.domain.util.NetworkStatusTracker
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,7 +23,7 @@ import javax.inject.Singleton
 object AppModule {
 
 
-    private val BASE_URL= Constants.BASE_URL
+//    private val BASE_URL= Constants.BASE_URL
 
     private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(
         HttpLoggingInterceptor.Level.BODY
@@ -49,21 +45,9 @@ object AppModule {
     @Singleton
     fun providesRetrofit(gson: Gson): Retrofit.Builder {
             return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+//            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
-    }
-
-    @Provides
-    @Singleton
-    fun providesNetworkAPI(retrofit: Retrofit.Builder): APIsInterface {
-        return retrofit.build().create(APIsInterface::class.java)
-    }
-
-    @Provides
-    @Singleton
-    fun providesNetworkRepository(apIsInterface: APIsInterface): NetworkRepository {
-        return NetworkRepositoryImpl(apIsInterface)
     }
 
     @Provides

@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/drawable/ic_arrow_back.xml" value="0.15185185185185185" />
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/drawable/ic_contact.xml" value="0.15185185185185185" />
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/layout/contact_detail_fragment.xml" value="0.22" />
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/layout/contact_list_fragment.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android Self Projects/Trinity-Wizards/app/src/main/res/layout/item_contact_list.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Khurram/AndroidStudioProjects/ZapKadTest/app/src/main/res/drawable/ic_arrow_back.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Khurram/AndroidStudioProjects/ZapKadTest/app/src/main/res/drawable/ic_note.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Khurram/AndroidStudioProjects/ZapKadTest/app/src/main/res/drawable/ic_search.xml" value="0.19166666666666668" />

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/contactListFragment">
+
+    <fragment
+        android:id="@+id/contactListFragment"
+        android:name="com.khurram.test.presentation.view.ContactListFragment"
+        android:label="contact_list_fragment"
+        tools:layout="@layout/contact_list_fragment" >
+        <action
+            android:id="@+id/action_contactListFragment_to_contactDetailFragment"
+            app:destination="@id/contactDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetailFragment"
+        android:name="com.khurram.test.presentation.view.ContactDetailFragment"
+        android:label="contact_detail_fragment"
+        tools:layout="@layout/contact_detail_fragment" >
+        <argument
+            android:name="contactModel"
+            app:argType="com.khurram.test.data.model.ContactModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

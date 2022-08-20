@@ -1,4 +1,4 @@
-package com.khurram.test.di
+package com.khurram.test.domain.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

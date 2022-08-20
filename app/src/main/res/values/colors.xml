@@ -13,4 +13,8 @@
     <color name="sea_blue">#48d6d2</color>
     <color name="light_yellow">#fefcbf</color>
     <color name="jet_black">#33332F</color>
+    <color name="light_grey">#F7F7F7</color>
+    <color name="text_black">#FF000000</color>
+    <color name="orange">#FF8C00</color>
+
 </resources>

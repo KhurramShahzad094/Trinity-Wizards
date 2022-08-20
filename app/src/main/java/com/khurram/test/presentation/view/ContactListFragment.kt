@@ -71,5 +71,9 @@ class ContactListFragment : Fragment() {
 
     private fun initialize(){
         adapter()
+
+        binding.swiperefresh.setOnRefreshListener {
+            binding.swiperefresh.isRefreshing = false
+        }
     }
 }

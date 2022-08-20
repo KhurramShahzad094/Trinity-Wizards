@@ -121,6 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
+            android:imeOptions="actionNext"
             />
 
     </LinearLayout>
@@ -153,6 +154,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
+            android:imeOptions="actionNext"
             />
 
     </LinearLayout>
@@ -202,6 +204,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
+            android:imeOptions="actionNext"
             />
 
     </LinearLayout>
@@ -234,6 +237,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
+            android:imeOptions="actionDone"
             />
 
     </LinearLayout>

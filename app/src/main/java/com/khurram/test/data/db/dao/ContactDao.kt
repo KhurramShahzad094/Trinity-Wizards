@@ -17,7 +17,10 @@ interface ContactDao {
     @Query("SELECT * FROM contact")
     fun getAllContacts(): Flow<List<ContactModel>>
 
-    @Query("DELETE FROM contact")
-    suspend fun deleteAllContacts()
+    @Query("UPDATE contact SET firstName=:firstName, lastName=:lastName, email=:email,phone=:phone WHERE id = :id")
+    suspend fun updateContactDetail(id : String, firstName : String, lastName : String, email : String, phone : String)
+
+    @Query("SELECT * FROM contact WHERE id=:id")
+    fun getContactDetail(id : String): Flow<ContactModel>
 
 }

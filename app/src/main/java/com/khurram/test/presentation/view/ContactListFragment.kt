@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -13,15 +14,15 @@ import com.google.gson.reflect.TypeToken
 import com.khurram.test.data.adapter.ContactAdapter
 import com.khurram.test.data.model.ContactModel
 import com.khurram.test.databinding.ContactListFragmentBinding
-import com.khurram.test.domain.util.Helper
+import com.khurram.test.presentation.viewmodel.ContactViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.reflect.Type
 
 @AndroidEntryPoint
 class ContactListFragment : Fragment() {
 
+    private val contactViewModel : ContactViewModel by viewModels()
     private lateinit var binding: ContactListFragmentBinding
-    private var contactList = listOf<ContactModel>()
     private lateinit var contactAdapter: ContactAdapter
 
     override fun onCreateView(
@@ -45,13 +46,11 @@ class ContactListFragment : Fragment() {
     }
 
     private fun getUsersList() {
-        val jsonFileString: String = Helper.getJsonFromAssets(context, "data.json")
-        Log.i("data", jsonFileString)
-        val gson = Gson()
-        val listUserType: Type = object : TypeToken<List<ContactModel?>?>() {}.getType()
-        contactList = gson.fromJson<List<ContactModel>>(jsonFileString, listUserType)
 
-        contactAdapter.submitList(contactList)
+        contactViewModel.getAllContacts().observe(viewLifecycleOwner,{
+            if (it!=null)
+            contactAdapter.submitList(it)
+        })
     }
 
     private fun adapter() {
@@ -73,6 +72,8 @@ class ContactListFragment : Fragment() {
         adapter()
 
         binding.swiperefresh.setOnRefreshListener {
+            val contactList = contactViewModel.getContactListFromAssets(context!!)
+            contactViewModel.insertAllContacts(contactList!!)
             binding.swiperefresh.isRefreshing = false
         }
     }

@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Helper {
+public class Friend {
 
     public static String getJsonFromAssets(Context context, String fileName) {
         String jsonString;

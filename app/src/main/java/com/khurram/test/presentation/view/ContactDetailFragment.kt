@@ -6,18 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.khurram.test.R
 import com.khurram.test.data.model.ContactModel
 import com.khurram.test.databinding.ContactDetailFragmentBinding
 import com.khurram.test.domain.util.showToast
+import com.khurram.test.presentation.viewmodel.ContactViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ContactDetailFragment : Fragment() {
 
     private lateinit var binding: ContactDetailFragmentBinding
+    private val contactViewModel : ContactViewModel by viewModels()
     val args: ContactDetailFragmentArgs by navArgs()
 
 
@@ -38,7 +41,10 @@ class ContactDetailFragment : Fragment() {
     }
 
     private fun getUserDetail() {
-        updateUI(data = args.contactModel)
+        contactViewModel.getContact(id= args.contactModel?.id!!).observe(viewLifecycleOwner,{
+            updateUI(data = it)
+        })
+
     }
 
     private fun clickListener() {
@@ -47,7 +53,8 @@ class ContactDetailFragment : Fragment() {
         }
 
         binding.toolbar.findViewById<Button>(R.id.btSave).setOnClickListener {
-            context?.showToast("In Progress")
+            val contact = ContactModel(id =args.contactModel?.id!! , firstName = binding.etFirstName.text.toString(), lastName = binding.etLastName.text.toString(), email = binding.etEmail.text.toString(), phone = binding.etPhone.text.toString())
+            contactViewModel.updateContact(contact.id,contact.firstName!!,contact.lastName!!,contact.email!!,contact.phone!!)
         }
     }
 
